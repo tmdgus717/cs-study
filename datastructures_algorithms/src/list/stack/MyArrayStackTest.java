@@ -15,6 +15,7 @@ public class MyArrayStackTest {
         System.out.println("top element is " + stack.pop());
         stack.printAll();
         System.out.println("stack size is " + stack.getSize());
+        System.out.println("stack peek is " + stack.peek());
     }
 
 }
