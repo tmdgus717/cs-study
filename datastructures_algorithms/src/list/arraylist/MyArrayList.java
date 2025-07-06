@@ -1,6 +1,8 @@
-package list;
+package list.arraylist;
 
-public class MyArrayList<E> implements ListInterface<E>{
+import list.ListInterface;
+
+public class MyArrayList<E> implements ListInterface<E> {
 
     private int count;
     private E[] objectList;

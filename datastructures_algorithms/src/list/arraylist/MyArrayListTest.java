@@ -1,4 +1,4 @@
-package list;
+package list.arraylist;
 
 public class MyArrayListTest {
 

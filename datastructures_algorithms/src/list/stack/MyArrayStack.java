@@ -1,7 +1,7 @@
 package list.stack;
 
 
-import list.MyArrayList;
+import list.arraylist.MyArrayList;
 
 public class MyArrayStack<E> extends MyArrayList<E> implements StackInterface<E> {
 
