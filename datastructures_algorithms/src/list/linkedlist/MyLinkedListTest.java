@@ -9,31 +9,36 @@ public class MyLinkedListTest {
         list.addElement("B");
         list.addElement("C");
 
-        //list.removeElement(3);
+        list.removeElement(3);
         list.printAll();
-//        list.reverseList();
+        System.out.println("---");
+        list.reverseList();
         list.printAll();
-
+        System.out.println("---");
 
         list.removeElement(0);
         list.removeElement(0);
         list.printAll();
+        System.out.println("---");
 
         list.insertElement(0, "A-1");
         list.printAll();
-        System.out.println(list.getSize());
+        System.out.println("---");
 
+        System.out.println(list.getSize());
         list.removeElement(0);
         list.printAll();
         System.out.println(list.getSize());
+        System.out.println("---");
 
         list.removeAll();
         list.printAll();
+        System.out.println("---");
+
         list.addElement("A");
         list.printAll();
         System.out.println(list.getElement(0));
         list.removeElement(0);
 
     }
-
 }

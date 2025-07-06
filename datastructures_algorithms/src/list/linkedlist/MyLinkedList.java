@@ -131,6 +131,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
     public void printAll() {
         if (count == 0) {
             System.out.println("빈 리스트 입니다.");
+            return;
         }
 
         ListNode<E> tempNode = head;
@@ -141,7 +142,19 @@ public class MyLinkedList<E> implements ListInterface<E> {
         System.out.println(tempNode.getData());
     }
 
-    public void reverse() {
+    public void reverseList() {
+        if(head == null) return;
 
+        ListNode<E> currentNode = null;
+        ListNode<E> preNode = null;
+        ListNode<E> nextNode = head;
+        while (nextNode != null) {
+            preNode = currentNode; //이전 노드를 현재 노드로!!
+            currentNode = nextNode;
+            nextNode = nextNode.next;
+            currentNode.next = preNode; //
+        }
+
+        head = currentNode;
     }
 }
