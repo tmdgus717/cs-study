@@ -3,29 +3,21 @@ package list.arraylist;
 public class MyArrayListTest {
 
     public static void main(String[] args) {
+        MyArrayList<Integer> list = new MyArrayList<>();
+        list.add(0, 300);
+        list.add(0, 200);
+        list.add(0, 100);
 
-        MyArrayList array = new MyArrayList();
-        array.addElement(10);
-        array.addElement(20);
+        list.append(500);
+        list.append(600);
 
-        array.addElement(30);
-        array.insertElement(1, 50);
-        array.printAll();
+        list.add(3, 250);
+        list.add(1, 50);
+        list.add(0, 10);
 
-        System.out.println("===============");
-        array.removeElement(1); //50삭제
-        array.printAll();
-        System.out.println("===============");
-
-        MyArrayList array2 = new MyArrayList();
-        array2.addElement(10);
-        array2.printAll();
-        System.out.println("===============");
-        array2.removeElement(1);
-        array2.printAll();
-
-        System.out.println(array.getElement(2));
-
+        list.append(700);
+        list.remove(1);
+        list.removeItem(600);
     }
-}
 
+}

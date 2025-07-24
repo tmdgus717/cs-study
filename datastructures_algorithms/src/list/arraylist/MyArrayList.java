@@ -4,129 +4,120 @@ import list.ListInterface;
 
 public class MyArrayList<E> implements ListInterface<E> {
 
-    private int count;
-    private E[] objectList;
+    private E item[];
+    private int numItems;
+    private static final int DEFAULT_CAPACITY = 64;
+    private static final int NOT_FOUND = -12345;
 
-    private int DEFAULT_CAPACITY = 10;
-    public static final int ERROR_NUM = -999999999;
-
-    public MyArrayList(){
-        objectList = (E[]) new Object[DEFAULT_CAPACITY];
+    public MyArrayList() {
+        item = (E[]) new Object[DEFAULT_CAPACITY];
+        numItems = 0;
     }
 
-    public MyArrayList(int size){
-        DEFAULT_CAPACITY = size;
-        objectList = (E[]) new Object[DEFAULT_CAPACITY];
-    }
-
-    @Override
-    public void insertElement(int position, E data) {
-        if (count >= DEFAULT_CAPACITY){
-            System.out.println("not enough memory");
-            return;
-        }
-        if(position < 0 || position > count){ //배열리스트는 빈 칸이 있으면 안된다!
-            System.out.println("insert position error");
-        }
-
-        if (position == count) {
-            addElement(data);
-            return;
-        }
-
-        for (int i = count - 1; i >= position; i--) {
-            objectList[i + 1] = objectList[i];
-        }
-
-        objectList[position] = data;
-        count++;
+    public MyArrayList(int n) {
+        item = (E[]) new Object[n];
+        numItems = 0;
     }
 
     @Override
-    public void addElement(E data) {
-        if (count >= DEFAULT_CAPACITY){
-            //원래라면 사이즈를 늘려줘야한다.
-            System.out.println("not enough memory");
-            return;
+    public void add(int index, E x) {
+        if (numItems >= item.length || index < 0 || index > numItems) {
+            System.out.println("에러처리");
         }
-
-        objectList[count++] = data;
+        else {
+            for (int i = numItems - 1; i >= index; i--) {
+                item[i + 1] = item[i];
+                item[index] = x;
+                numItems++;
+            }
+        }
     }
 
     @Override
-    public E removeElement(int position) {
-        if( isEmpty() ){
-            System.out.println("There is no element");
+    public void append(E x) {
+        if (numItems >= item.length){
+            System.out.println("에러처리");
+        }
+        else {
+            item[numItems++] = x;
+        }
+    }
+
+    @Override
+    public E remove(int index) {
+        if (isEmpty() || index < 0 || index > numItems - 1) {
             return null;
+        }else {
+            E tmp = item[index];
+            for (int i = index; i <= numItems - 2; i++) {
+                item[i] = item[i + 1];
+            }
+            numItems--;
+            return tmp;
         }
-
-        if(position < 0 || position >= count ){  //index error
-            System.out.println("position Error");
-            return null;
-        }
-
-        E ret = objectList[position];
-
-        for(int i = position; i<count -1; i++ )
-        {
-            objectList[i] = objectList[i+1];
-        }
-
-        count--;
-        return ret;
-
     }
 
     @Override
-    public E getElement(int position) {
-        if( isEmpty() ){
-            System.out.println("There is no element");
-            return null;
+    public boolean removeItem(E x) {
+        //위치 찾기
+        int k = 0;
+        while (k < numItems && ((Comparable) item[k]).compareTo(x) != 0) {
+            k++;
         }
-
-        if(position < 0 || position >= count ){  //index error
-            System.out.println("position Error");
-            return null;
+        if (k == numItems) {
+            return false;
         }
-
-        return objectList[position];
+        //삭제하고 쉬프트
+        else{
+            for (int i = k; i <= numItems - 2; i++) {
+                item[i] = item[i + 1];
+            }
+            numItems--;
+            return true;
+        }
     }
 
     @Override
-    public int getSize() {
-        return count;
+    public E get(int i) {
+        if (i >= 0 && i <= numItems - 1) {
+            return item[i];
+        }
+        return null;
+    }
+
+    @Override
+    public void set(int i, E x) {
+        if (i >= 0 && i <= numItems - 1) {
+            item[i] = x;
+        }else {
+            System.out.println("에러처리");
+        }
+    }
+
+    @Override
+    public int indexOf(E x) {
+        for (int i = 0; i < numItems; i++) {
+            if (((Comparable) item[i]).compareTo(x) == 0) {
+                return i;
+            }
+        }
+
+        return NOT_FOUND;
+    }
+
+    @Override
+    public int len() {
+        return numItems;
     }
 
     @Override
     public boolean isEmpty() {
-        if(count == 0){
-            return true;
-        }
-        else return false;
-
+        return numItems == 0;
     }
 
     @Override
-    public void removeAll() {
-        objectList = (E[]) new Object[DEFAULT_CAPACITY];
-        count = 0;
-    }
-
-    @Override
-    public void printAll() {
-        if(count == 0){
-            System.out.println("Array is empty");
-            return;
-        }
-
-        for(int i=0; i<count; i++){
-            System.out.println(objectList[i]);
-        }
-
-    }
-
-
-    protected int getCapacity() {
-        return DEFAULT_CAPACITY;
+    public void clear() {
+        item = (E[]) new Object[item.length];
+        numItems = 0;
     }
 }
