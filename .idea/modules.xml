@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/clean_code/clean_code.iml" filepath="$PROJECT_DIR$/clean_code/clean_code.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/cs-study.iml" filepath="$PROJECT_DIR$/.idea/cs-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/datastructures_algorithms/datastructures_algorithms.iml" filepath="$PROJECT_DIR$/datastructures_algorithms/datastructures_algorithms.iml" />
       <module fileurl="file://$PROJECT_DIR$/modern_java/modern_java.iml" filepath="$PROJECT_DIR$/modern_java/modern_java.iml" />
