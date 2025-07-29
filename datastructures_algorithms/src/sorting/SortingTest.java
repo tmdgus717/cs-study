@@ -16,7 +16,8 @@ public class SortingTest {
         showArray(array);
 
 //        s.selectionSort();
-        s.bubbleSort();
+//        s.bubbleSort();
+        s.insertionSort();
 
         System.out.println("정렬 후");
         showArray(array);

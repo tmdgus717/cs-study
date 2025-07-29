@@ -48,4 +48,16 @@ public class Sorting {
         }
     }//bubbleSort
 
+    public void insertionSort() {//삽입정렬
+        for (int i = 1; i <= array.length - 1; i++) {
+            int loc = i - 1;
+            int newItem = array[i];
+            while (loc >= 0 && newItem < array[loc]){
+                array[loc + 1] = array[loc];
+                loc--;
+            }
+            array[loc + 1] = newItem;
+        }
+    }
+
 }
