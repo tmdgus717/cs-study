@@ -28,4 +28,24 @@ public class Sorting {
         }
         return largestIndex;
     }
+
+    public void bubbleSort() {
+        int tmp = 0;
+        boolean swapped;
+        for (int last = array.length - 1; last >= 2; last--) {
+            swapped = false;
+            for (int i = 0; i <= last - 1; i++) {
+                if(array[i] > array[i+1]){
+                    //swap
+                    tmp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = tmp;
+                    swapped = true;
+                }
+            }
+            //조기종료 조건 : 스왑이 한번도 발생하지 않으면 정렬 완료됨
+            if (swapped == false) break;
+        }
+    }//bubbleSort
+
 }
