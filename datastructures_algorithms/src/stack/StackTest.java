@@ -10,6 +10,16 @@ public class StackTest {
 
         System.out.println(stack.pop());
         System.out.println(stack.pop());
+        System.out.println("----------");
+
+        var linkedStack = new MyLinkedStack<Integer>();
+        linkedStack.push(300);
+        linkedStack.push(200);
+
+        System.out.println(linkedStack.pop());
+        System.out.println(linkedStack.top());
+        linkedStack.popAll();
+        System.out.println(linkedStack.isEmpty());
     }
 
 }
