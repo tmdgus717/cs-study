@@ -52,11 +52,11 @@ public class Sorting {
         for (int i = 1; i <= array.length - 1; i++) {
             int loc = i - 1;
             int newItem = array[i];
-            while (loc >= 0 && newItem < array[loc]){
-                array[loc + 1] = array[loc];
+            while (loc >= 0 && newItem < array[loc]){ // 새값이랑 이전 값 비교
+                array[loc + 1] = array[loc]; // 한칸씩 뒤로
                 loc--;
             }
-            array[loc + 1] = newItem;
+            array[loc + 1] = newItem; //새 값을 저장
         }
     }
 
