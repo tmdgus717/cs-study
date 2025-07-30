@@ -18,7 +18,8 @@
 서버와 클라이언트
 - 클라이언트 : 요청을 보내는 호스트
 - 서버 : 응답을 보내는 호스트
-  ![](image.png)
+
+<img src="./image/image.png" alt="img" width="400"/>
   
   중간 노드
 - 네트워크 장비
@@ -34,15 +35,15 @@
 - LAN : 근거리 연결 네트워크 (사무실, 가정)
 - WAN : 원거리를 연결한 네트워크 (인터넷 서비스)
     - ISP : InternetServiceProvider에 의해 구축 (KT,LG U+,SK 브로드밴드…)
-    - 
-      ![](image%202.png)<!-- {"width":300} -->
+
+<img src="./image/image2.png" alt="img" width="400"/>
       
 # 프로토콜과 캡슐화
 
 ### 패킷 교환 네트워크 (packet)
 주고받는 정보를 패킷 단위로 주고받는 네트워크
 
-![](image%203.png)<!-- {"width":300} -->
+<img src="./image/image3.png" alt="img" width="400"/>
 
 ### 회선 교환 네트워크
 정해진 회선으로만 통신하는 네트워크 (전통적인 전화망)
@@ -50,7 +51,7 @@
 장점 : 전송률 보장
 단점 : 회선 이용률 저하
 
-![](image%204.png)<!-- {"width":245} -->
+<img src="./image/image4.png" alt="img" width="400"/>
 
 ### 패킷 구성 요소
 헤더(header ) : 패킷에 붙일 부가 정보
@@ -61,26 +62,26 @@
 장비 간 정보를 주고받을 **규칙이나 방법**
 호스트 간 합의된 의사 소통 규칙
 
-![](image%205.png)<!-- {"width":245} -->
+<img src="./image/image5.png" alt="img" width="400"/>
 
 헤더의 내용은 프로토콜의 영향을 받는다
 프로토콜이 달라지면 헤더의 내용이 달라질 수 있다
 #### TCP
 
-![](image%206.png)<!-- {"width":461} -->
+<img src="./image/image6.png" alt="img" width="400"/>
 #### UDP
 
-![](image%207.png)<!-- {"width":477} -->
+<img src="./image/image7.png" alt="img" width="400"/>
 
 
-![](image%208.png)<!-- {"width":455} -->
+<img src="./image/image8.png" alt="img" width="400"/>
 
 ### 캡슐화(encapsulation)
 상위 계층으로부터 내려받은 패킷을 페이로드로 삼아, 상위 계층으로부터 받은 정보에 프로토콜에 걸맞는 헤더(혹은 트레일러)를 덧붙이는 것
 PDU
 데이터 -> 세그먼트(TCP), 데이터그램(UDP) -> 패킷 -> 프레임 -> 비트
 
-![](image%2010.png)
+<img src="./image/image10.png" alt="img" width="400"/>
 
 ### WIRESHARK
 https://github.com/kangtegong/fastcampus-cs/tree/main/net
