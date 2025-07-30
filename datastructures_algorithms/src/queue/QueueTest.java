@@ -3,7 +3,8 @@ package queue;
 public class QueueTest {
 
     public static void main(String[] args) {
-        ArrayQueue<String> s = new ArrayQueue<>();
+//        ArrayQueue<String> s = new ArrayQueue<>();
+        LinkedQueue<String> s = new LinkedQueue<>();
         s.enqueue("test1");
         s.enqueue("test2");
         s.enqueue("test3");
