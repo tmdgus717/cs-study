@@ -60,4 +60,39 @@ public class Sorting {
         }
     }
 
+    public void mergeSort() {
+        int[] tmp = new int[array.length];
+        mSort(0, array.length - 1, tmp);
+    }
+
+    private void mSort(int p, int r, int[] tmp) {
+        if (p < r) {
+            int q = (p + r) / 2;
+            mSort(p, q, tmp);
+            mSort(q + 1, r, tmp);
+            merge(p,q, r, tmp);
+        }
+    }
+
+    private void merge(int p, int q, int r, int[] tmp) {
+        int i = p; int j = q+1;int t = 0;
+        while (i <= q && j <= r) {
+            if(array[i] <= array[j]){
+                tmp[t++] = array[i++];
+            }else{
+                tmp[t++] = array[j++];
+            }
+        }
+
+        while (i <= q) { //왼쪽 배열이 남은 경우
+            tmp[t++] = array[i++];
+        }
+        while (j <= r) {
+            tmp[t++] = array[j++];
+        }
+        i = p; t = 0;
+        while (i <= r) {
+            array[i++] = tmp[t++];
+        }
+    }
 }
