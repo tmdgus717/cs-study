@@ -65,34 +65,43 @@ public class Sorting {
         mSort(0, array.length - 1, tmp);
     }
 
-    private void mSort(int p, int r, int[] tmp) {
-        if (p < r) {
-            int q = (p + r) / 2;
-            mSort(p, q, tmp);
-            mSort(q + 1, r, tmp);
-            merge(p,q, r, tmp);
+    private void mSort(int start, int end, int[] tmp) {
+        if (start < end) {
+            int mid = (start + end) / 2;
+            mSort(start, mid, tmp);
+            mSort(mid + 1, end, tmp);
+            merge(start, mid, end, tmp);
         }
     }
 
-    private void merge(int p, int q, int r, int[] tmp) {
-        int i = p; int j = q+1;int t = 0;
-        while (i <= q && j <= r) {
-            if(array[i] <= array[j]){
-                tmp[t++] = array[i++];
+    private void merge(int start, int mid, int end, int[] tmp) {
+        //투포인터 원리 사용
+        int part1 = start;
+        int part2 = mid + 1;
+        int index = 0;
+
+        // 두포인터 중 하나가 끝까지 갈때까지 실행
+        while (part1 <= mid && part2 <= end) {
+            if(array[part1] <= array[part2]){
+                tmp[index] = array[part1];
+                part1++;
             }else{
-                tmp[t++] = array[j++];
+                tmp[index] = array[part2];
+                part2++;
             }
+            index++;
         }
 
-        while (i <= q) { //왼쪽 배열이 남은 경우
-            tmp[t++] = array[i++];
+        for (int i = 0; i <= mid - part1; i++) {
+            tmp[index + i] = array[part1 + i];
         }
-        while (j <= r) {
-            tmp[t++] = array[j++];
+        for (int i = 0; i <= end - part2; i++) {
+            tmp[index + i] = array[part2 + i];
         }
-        i = p; t = 0;
-        while (i <= r) {
-            array[i++] = tmp[t++];
+
+        index = 0;
+        while (start <= end) {
+            array[start++] = tmp[index++];
         }
     }
 }
