@@ -18,7 +18,8 @@ public class SortingTest {
 //        s.selectionSort();
 //        s.bubbleSort();
 //        s.insertionSort();
-        s.mergeSort();
+//        s.mergeSort();
+        s.quickSort();
 
         System.out.println("정렬 후");
         showArray(array);
