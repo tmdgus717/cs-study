@@ -136,4 +136,48 @@ public class Sorting {
         array[size] = tmp;
         return part1 + 1;
     }
+
+    public void heapSort() {
+        buildHeap();
+        int tmp;
+        for (int i = array.length - 1; i >= 1; i--) {
+            tmp = array[0];
+            array[0] = array[i];
+            array[i] = tmp;
+            percolateDown(0, i - 1);
+        }
+    }
+
+    //A[0] 은 루트 노드
+    //수선은 맨 마지막 노드의 부모로부터 시작 -> 이 노드를 루트로하는 서브 트리를 힙으로 수선 : 반복
+    private void buildHeap() { //배열을 정렬하기 전 힙 특성을 만족하도록 변경
+        if (array.length >= 2) { // 완전 이진 트리 구조이므로 값이 2 이상
+            int lastNodeIndex = array.length - 1;
+            for (int i = (lastNodeIndex - 1) / 2; i >= 0; i--) { //마지막 노드의 부모노드 부터 시작 (3..2..1..0)
+                percolateDown(i, array.length - 1); //현재 위치와 배열 사이즈
+            }
+        }
+    }
+
+    /* 힙 : 완전 이진 트리 구조를 사용하는 우선순위 큐
+     * A[k] 의 자식은 A[2k+1]과 A[2k+2]
+     * A[0] 의 자식은 A[1]과 A[2]
+     * A[1] 의 자식은 A[3]과 A[4]
+     * A[k] 의 부모 노드는 A[(k - 1) / 2]
+     * */
+    private void percolateDown(int i, int n) {//최대 힙
+        int child = 2 * i + 1; //left
+        int rightChild = 2 * i + 2; //right
+        if (child <= n) { //  자식 노드의 인덱스가 현재 힙 크기(n) 안에 있는지 확인
+            if ((rightChild <= n) && (array[child] < array[rightChild])){
+                child = rightChild; // 더 큰 자식과 교환이 이루어진다.
+            }
+            if (array[i] < array[child]) { //부모노드의 값이 더 작다면 교환
+                int tmp = array[i];
+                array[i] = array[child];
+                array[child] = tmp;
+                percolateDown(child, n); //종료될때까지 반복
+            }
+        }
+    }
 }
