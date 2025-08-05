@@ -105,4 +105,35 @@ public class Sorting {
             array[start++] = tmp[index++];
         }
     }
+
+    public void quickSort() {
+        qSort(0, array.length - 1);
+    }
+
+    //MergeSort 와는 다르게 먼저 정렬을 하고 분할
+    private void qSort(int start, int size) {
+        if (start < size) {
+            int pivot = partition(start, size);
+            qSort(start, pivot - 1);
+            qSort(pivot + 1, size);
+        }
+    }
+
+    private int partition(int start, int size) {
+        int pivot = array[size];
+        int part1 = start - 1;
+        int tmp;
+        for (int part2 = start; part2 <= size - 1; part2++) {
+            if(array[part2] <= pivot){
+                part1++;
+                tmp = array[part1];
+                array[part1] = array[part2];
+                array[part2] = tmp;
+            }
+        }
+        tmp = array[part1 + 1];
+        array[part1 + 1] = array[size];
+        array[size] = tmp;
+        return part1 + 1;
+    }
 }
