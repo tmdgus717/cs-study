@@ -66,6 +66,7 @@ public class Sorting {
     }
 
     private void mSort(int start, int end, int[] tmp) {
+        //분할정복 원리 사용
         if (start < end) {
             int mid = (start + end) / 2;
             mSort(start, mid, tmp);
