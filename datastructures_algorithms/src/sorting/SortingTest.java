@@ -21,8 +21,8 @@ public class SortingTest {
 //        s.mergeSort();
 //        s.quickSort();
 //        s.heapSort();
-        s.shellSort();
-
+//        s.shellSort();
+        array = s.countingSort(NUM_SCALE);
         System.out.println("정렬 후");
         showArray(array);
     }

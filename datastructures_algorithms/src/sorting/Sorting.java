@@ -200,4 +200,25 @@ public class Sorting {
             array[j + h] = insItem;
         }
     }
+
+    //계수 정렬
+    public int[] countingSort(int k) { // 0 ~ k-1
+        int[] cnt = new int[k];
+        for (int i = 0; i < k; i++) {
+            cnt[i] = 0;
+        }
+        for (int i = 0; i < array.length; i++) {
+            cnt[array[i]]++;
+        }
+        cnt[0]--;
+        for (int i = 1; i < k; i++) {
+            cnt[i] += cnt[i - 1];
+        }
+        int[] tmp = new int[array.length];
+        for (int j = array.length - 1; j >= 0; j--) {
+            tmp[cnt[array[j]]] = array[j];
+            cnt[array[j]]--;
+        }
+        return tmp;
+    }
 }
