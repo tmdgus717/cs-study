@@ -180,4 +180,24 @@ public class Sorting {
             }
         }
     }
+
+    public void shellSort() {
+        for (int h = array.length / 7; h > 5; h = h / 5 - 1) {
+            for (int k = 0; k <= h - 1; k++) {
+                stepInsertionSort(k, h);
+            }
+        }
+        stepInsertionSort(0, 1);
+    }
+
+    private void stepInsertionSort(int k, int h) {
+        int j, insItem;
+        for (int i = k + h; i <= array.length - 1; i += h) {
+            insItem = array[i];
+            for (j = i - h; j >= 0 && array[j] > insItem; j -= h) {
+                array[j + h] = array[j];
+            }
+            array[j + h] = insItem;
+        }
+    }
 }

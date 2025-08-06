@@ -78,6 +78,9 @@ BookShelf{shelf=[Book{author='조정래', title='태백산맥'}, Book{author='�
 - 객체뿐 아니라, 그 객체가 가진 참조 타입 필드가 가리키는 객체까지 새로 복사하는 방식
 - 원본과 복제본이 전혀 다른 객체를 가지므로 서로 영향을 주지 않음
 
+## 추상 팩토리 패턴 (Abstract Factory)
+
+
 ## 빌더 패턴
 <img src="../image/img3.png" alt="img" width="200"/>
 

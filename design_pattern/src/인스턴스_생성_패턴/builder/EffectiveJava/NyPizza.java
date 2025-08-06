@@ -1,7 +1,6 @@
 package 인스턴스_생성_패턴.builder.EffectiveJava;
 
 import java.util.Objects;
-import 인스턴스_생성_패턴.builder.EffectiveJava.Pizza.Builder;
 
 public class NyPizza extends Pizza{
 

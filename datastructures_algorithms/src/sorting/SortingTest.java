@@ -20,7 +20,8 @@ public class SortingTest {
 //        s.insertionSort();
 //        s.mergeSort();
 //        s.quickSort();
-        s.heapSort();
+//        s.heapSort();
+        s.shellSort();
 
         System.out.println("정렬 후");
         showArray(array);
