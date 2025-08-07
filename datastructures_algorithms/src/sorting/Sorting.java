@@ -225,4 +225,37 @@ public class Sorting {
         }
         return tmp;
     }
+
+    //기수 정렬
+    public void radixSort() {
+        int[] cnt = new int[10];
+        int[] start = new int[10];
+        int[] tmp = new int[array.length];
+        int max = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        //최대값으로 자릿수 계산
+        int numDigits = (int)Math.log10(max) + 1;
+        for (int digit = 1; digit <= numDigits; digit++) { //자릿수를 뒤에서부터 하나씩 올려가면서 계산
+            for (int d = 0; d <= 9; d++) {
+                cnt[d] = 0; //배열 초기화
+            }
+            for (int i = 0; i < array.length; i++) {
+                cnt[(int)(array[i]/Math.pow(10, digit-1)) % 10] ++;
+            }
+            start[0] = 0;
+            for (int d = 1; d <= 9; d++) {
+                start[d] = start[d - 1] + cnt[d - 1];
+            }
+            for (int i = 0; i < array.length; i++) {
+                tmp[start[(int) (array[i] / Math.pow(10, digit - 1)) % 10]++] = array[i];
+            }
+            for (int i = 0; i < array.length; i++) {
+                array[i] = tmp[i];
+            }
+        }
+    }
 }

@@ -22,7 +22,8 @@ public class SortingTest {
 //        s.quickSort();
 //        s.heapSort();
 //        s.shellSort();
-        array = s.countingSort(NUM_SCALE);
+//        array = s.countingSort(NUM_SCALE);
+        s.radixSort();
         System.out.println("정렬 후");
         showArray(array);
     }
