@@ -204,17 +204,21 @@ public class Sorting {
     //계수 정렬
     public int[] countingSort(int k) { // 0 ~ k-1
         int[] cnt = new int[k];
+        //카운팅 배열 초기화
         for (int i = 0; i < k; i++) {
             cnt[i] = 0;
         }
+        //숫자 카운팅
         for (int i = 0; i < array.length; i++) {
             cnt[array[i]]++;
         }
-        cnt[0]--;
+        cnt[0]--;//인덱스 조정
+        //누적합 -> 순서를 보장해 주기 위해서 (STABLE SORT)
         for (int i = 1; i < k; i++) {
             cnt[i] += cnt[i - 1];
         }
         int[] tmp = new int[array.length];
+        //뒤에서부터 값을 읽어오면서 누적합 배열의 인덱스도 하나씩 줄여서 조정해준다
         for (int j = array.length - 1; j >= 0; j--) {
             tmp[cnt[array[j]]] = array[j];
             cnt[array[j]]--;
