@@ -1,4 +1,4 @@
-# 01. 네트워크 거시적으로 보기
+# 네트워크 거시적으로 보기
 
 컴퓨터 네트워크 : 여러 장치들이 서로 정보를 주고 받을 수 있는 통신망
 
@@ -71,11 +71,11 @@
 #### TCP
 
 <img src="./image/image6.png" alt="img" width="400"/>
-#### UDP
 
+#### UDP
 <img src="./image/image7.png" alt="img" width="400"/>
 
-
+#### 모델
 <img src="./image/image8.png" alt="img" width="400"/>
 
 ### 캡슐화(encapsulation)
