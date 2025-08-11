@@ -1,0 +1,26 @@
+package hashtable;
+
+public class HashTableTest2 {
+
+    public static void main(String[] args) {
+        OpenAddressingHashTable h = new OpenAddressingHashTable(11);
+        h.insert(10);
+        h.delete(10);
+        h.insert(20);
+
+        h.insert(5);
+        h.insert(80);
+        h.insert(590);
+
+        h.delete(20);
+        h.delete(44);
+
+        int slot = h.search(80); //hash 값 가져옴
+        if (slot == OpenAddressingHashTable.NOT_FOUND) {
+            System.out.println("Search Failed!");
+        }else {
+            System.out.println("Found : " + h.getItem(slot));
+        }
+    }
+
+}
