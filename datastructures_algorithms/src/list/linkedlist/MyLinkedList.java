@@ -70,7 +70,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
         }
     }
 
-    private Node<E> getNode(int index) {
+    public Node<E> getNode(int index) {
         if (index >= -1 && index <= numItems - 1) {
             Node<E> currNode = head;
             for (int i = 0; i <= index; i++) {
